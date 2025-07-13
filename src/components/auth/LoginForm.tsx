@@ -51,7 +51,7 @@ export const LoginForm: React.FC = () => {
         </CardHeader>
 
         <form onSubmit={handleSubmit}>
-          <CardContent className="space-y-4">
+          <CardContent className="space-y-6">
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
               <Input
@@ -96,12 +96,6 @@ export const LoginForm: React.FC = () => {
             </Button>
           </CardFooter>
         </form>
-
-        <div className="px-6 pb-6">
-          <p className="text-sm text-muted-foreground text-center">
-            Demo credentials: admin@mentra.edu / admin123
-          </p>
-        </div>
       </Card>
     </div>
   );
