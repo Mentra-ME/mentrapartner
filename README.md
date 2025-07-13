@@ -1,4 +1,0 @@
-# mainpartner
-# mentrapartner
-# mentrapartner
-# mentrapartner
