@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "clean-dist": "find dist -type f ! -name '.user.ini' -delete && find dist -type d -empty -delete",
-    "build": "npm run clean-dist && vite build",
+    "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview"
