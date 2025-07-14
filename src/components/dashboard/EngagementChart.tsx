@@ -10,6 +10,7 @@ const engagementData = [
   { month: 'Apr', sessions: 61 },
   { month: 'May', sessions: 55 },
   { month: 'Jun', sessions: 67 },
+  { month: 'Jul', sessions: 90 },
 ];
 
 const chartConfig = {
@@ -23,7 +24,7 @@ export const EngagementChart: React.FC = () => {
   return (
     <Card className="shadow-elegant">
       <CardHeader>
-        <CardTitle className="text-lg font-semibold text-foreground">
+        <CardTitle className="text-lg font-semibold text-foreground mb-12">
           Monthly Engagement
         </CardTitle>
       </CardHeader>
