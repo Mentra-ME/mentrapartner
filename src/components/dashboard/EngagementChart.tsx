@@ -22,39 +22,44 @@ const chartConfig = {
 
 export const EngagementChart: React.FC = () => {
   return (
-    <Card className="shadow-elegant">
-      <CardHeader>
-        <CardTitle className="text-lg font-semibold text-foreground mb-12">
-          Monthly Engagement
-        </CardTitle>
-      </CardHeader>
-      <CardContent>
-        <ChartContainer config={chartConfig} className="h-[250px]">
-          <ResponsiveContainer width="100%" height="100%">
-            <LineChart data={engagementData}>
-              <XAxis 
-                dataKey="month" 
-                axisLine={false}
-                tickLine={false}
-                className="text-muted-foreground"
-              />
-              <YAxis 
-                axisLine={false}
-                tickLine={false}
-                className="text-muted-foreground"
-              />
-              <ChartTooltip content={<ChartTooltipContent />} />
-              <Line
-                type="monotone"
-                dataKey="sessions"
-                stroke="var(--color-sessions)"
-                strokeWidth={2}
-                dot={{ fill: "var(--color-sessions)", r: 4 }}
-              />
-            </LineChart>
-          </ResponsiveContainer>
-        </ChartContainer>
-      </CardContent>
-    </Card>
+      <Card className="shadow-elegant">
+        <CardHeader>
+          <CardTitle className="text-lg font-semibold text-foreground mb-12">
+            Monthly Engagement
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="p-4">
+          <ChartContainer config={chartConfig} className="h-[250px] w-full">
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart
+                  data={engagementData}
+                  margin={{ top: 10, right: 20, bottom: 10, left: 20 }}
+              >
+                <XAxis
+                    dataKey="month"
+                    axisLine={false}
+                    tickLine={false}
+                    className="text-muted-foreground"
+                    padding={{ left: 10, right: 10 }}
+                />
+                <YAxis
+                    axisLine={false}
+                    tickLine={false}
+                    className="text-muted-foreground"
+                    padding={{ top: 10, bottom: 10 }}
+                />
+                <ChartTooltip content={<ChartTooltipContent />} />
+                <Line
+                    type="monotone"
+                    dataKey="sessions"
+                    stroke="var(--color-sessions)"
+                    strokeWidth={2}
+                    dot={{ fill: "var(--color-sessions)", r: 4 }}
+                />
+              </LineChart>
+            </ResponsiveContainer>
+          </ChartContainer>
+        </CardContent>
+      </Card>
   );
 };
