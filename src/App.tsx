@@ -67,9 +67,9 @@ const App = () => (
                 <ComingSoon title="Engagement Analytics" description="Detailed analytics on student engagement and participation." />
               </ProtectedRoute>
             } />
-            <Route path="/school-addins" element={
+            <Route path="/school-admins" element={
               <ProtectedRoute>
-                <ComingSoon title="School Addins" description="Configure and manage school-specific integrations and extensions." />
+                <ComingSoon title="School Admins" description="Configure and manage school-specific integrations and extensions." />
               </ProtectedRoute>
             } />
             <Route path="/ai-sessions" element={

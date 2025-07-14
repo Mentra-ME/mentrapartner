@@ -7,6 +7,7 @@ interface DashboardLayoutProps {
 }
 
 export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) => {
+  const partnerName = "University of Birmingham Dubai";
   return (
     <SidebarProvider>
       <div className="min-h-screen flex w-full bg-background">
@@ -16,7 +17,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({ children }) =>
           <header className="h-16 border-b border-border bg-card flex items-center px-6">
             <SidebarTrigger className="mr-4 z-20" />
             <div className="flex-1">
-              <h2 className="text-xl font-semibold text-foreground">Mentra Partner Dashboard</h2>
+              <h2 className="text-xl font-semibold text-foreground">{partnerName} Dashboard</h2>
             </div>
           </header>
           

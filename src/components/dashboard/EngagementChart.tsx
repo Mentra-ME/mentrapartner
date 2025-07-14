@@ -28,7 +28,7 @@ export const EngagementChart: React.FC = () => {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig} className="h-[200px]">
+        <ChartContainer config={chartConfig} className="h-[250px]">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={engagementData}>
               <XAxis 

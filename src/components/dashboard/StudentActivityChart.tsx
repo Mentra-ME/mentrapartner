@@ -29,7 +29,7 @@ export const StudentActivityChart: React.FC = () => {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig} className="h-[200px]">
+        <ChartContainer config={chartConfig} className="h-[300px]">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={activityData}>
               <XAxis 
@@ -46,7 +46,8 @@ export const StudentActivityChart: React.FC = () => {
               <ChartTooltip content={<ChartTooltipContent />} />
               <Bar
                 dataKey="active"
-                fill="var(--color-active)"
+                // fill="var(--color-active)"
+                fill="rgb(87, 138, 128)"
                 radius={[4, 4, 0, 0]}
               />
             </BarChart>
