@@ -16,10 +16,11 @@ export const LoginForm: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    const success = await login(email, password);
-    
-    if (success) {
+
+
+    const result = await login(email, password);
+
+    if (result === true) {
       toast({
         title: "Welcome back!",
         description: "Successfully logged into Mentra Dashboard",
@@ -27,7 +28,7 @@ export const LoginForm: React.FC = () => {
     } else {
       toast({
         title: "Login failed",
-        description: "Invalid credentials. Try admin@mentra.edu / admin123",
+        description: result,
         variant: "destructive",
       });
     }

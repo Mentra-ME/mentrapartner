@@ -3,7 +3,16 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
 import { LineChart, Line, XAxis, YAxis, ResponsiveContainer } from 'recharts';
 
-const engagementData = [
+interface MonthlySession {
+  month: string;
+  sessions: number;
+}
+
+interface EngagementChartProps {
+  monthlyActiveUsers?: MonthlySession[];
+}
+
+const defaultEngagementData: MonthlySession[] = [
   { month: 'Jan', sessions: 45 },
   { month: 'Feb', sessions: 52 },
   { month: 'Mar', sessions: 48 },
@@ -20,7 +29,11 @@ const chartConfig = {
   },
 };
 
-export const EngagementChart: React.FC = () => {
+export const EngagementChart: React.FC<EngagementChartProps> = ({ monthlyActiveUsers }) => {
+  const chartData = monthlyActiveUsers && monthlyActiveUsers.length > 0
+      ? monthlyActiveUsers
+      : defaultEngagementData;
+
   return (
       <Card className="shadow-elegant">
         <CardHeader>
@@ -32,7 +45,7 @@ export const EngagementChart: React.FC = () => {
           <ChartContainer config={chartConfig} className="h-[250px] w-full">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart
-                  data={engagementData}
+                  data={chartData}
                   margin={{ top: 10, right: 20, bottom: 10, left: 20 }}
               >
                 <XAxis
@@ -54,7 +67,7 @@ export const EngagementChart: React.FC = () => {
                     dataKey="sessions"
                     stroke="var(--color-sessions)"
                     strokeWidth={2}
-                    dot={{ fill: "var(--color-sessions)", r: 4 }}
+                    dot={{ fill: 'var(--color-sessions)', r: 4 }}
                 />
               </LineChart>
             </ResponsiveContainer>

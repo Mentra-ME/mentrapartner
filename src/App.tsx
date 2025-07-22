@@ -9,6 +9,7 @@ import { DashboardLayout } from "@/components/layout/DashboardLayout";
 import { Dashboard } from "@/pages/Dashboard";
 import { ComingSoon } from "@/pages/ComingSoon";
 import NotFound from "./pages/NotFound";
+import UpdatePassword from "@/pages/UpdatePassword";
 
 const queryClient = new QueryClient();
 
@@ -85,6 +86,11 @@ const App = () => (
             <Route path="/eos" element={
               <ProtectedRoute>
                 <ComingSoon title="EOS" description="End of session analytics and reporting tools." />
+              </ProtectedRoute>
+            } />
+            <Route path="/update-password" element={
+              <ProtectedRoute>
+                <UpdatePassword />
               </ProtectedRoute>
             } />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

@@ -3,7 +3,18 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
 import { BarChart, Bar, XAxis, YAxis, ResponsiveContainer } from 'recharts';
 
-const activityData = [
+
+interface DailyActiveUser {
+  day: string;
+  active: number;
+}
+
+interface StudentActivityChartProps {
+  dailyActiveUsers?: DailyActiveUser[];
+}
+
+
+const defaultActivityData = [
   { day: 'Mon', active: 28 },
   { day: 'Tue', active: 35 },
   { day: 'Wed', active: 42 },
@@ -20,7 +31,9 @@ const chartConfig = {
   },
 };
 
-export const StudentActivityChart: React.FC = () => {
+export const StudentActivityChart: React.FC<StudentActivityChartProps> = ({ dailyActiveUsers }) => {
+    const activityData = dailyActiveUsers && dailyActiveUsers.length > 0 ? dailyActiveUsers : defaultActivityData;
+
   return (
       <Card className="shadow-elegant">
         <CardHeader>
@@ -28,32 +41,32 @@ export const StudentActivityChart: React.FC = () => {
             Daily Active Students
           </CardTitle>
         </CardHeader>
-        <CardContent className="p-4"> {/* Add padding inside content if needed */}
+        <CardContent className="p-4">
           <ChartContainer config={chartConfig} className="h-[300px] w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart
                   data={activityData}
-                  margin={{ top: 10, right: 20, bottom: 10, left: 10 }} // ✅ Prevent clipping
+                  margin={{ top: 10, right: 20, bottom: 10, left: 10 }} // Prevent clipping
               >
                 <XAxis
                     dataKey="day"
                     axisLine={false}
                     tickLine={false}
                     className="text-muted-foreground"
-                    padding={{ left: 10, right: 10 }} // ✅ Adds spacing around bars
+                    padding={{ left: 10, right: 10 }} // Adds spacing around bars
                 />
                 <YAxis
                     axisLine={false}
                     tickLine={false}
                     className="text-muted-foreground"
-                    padding={{ top: 10, bottom: 10 }} // Optional: vertical spacing
+                    padding={{ top: 10, bottom: 10 }} // vertical spacing
                 />
                 <ChartTooltip content={<ChartTooltipContent />} />
                 <Bar
                     dataKey="active"
                     fill="rgb(87, 138, 128)"
                     radius={[4, 4, 0, 0]}
-                    maxBarSize={45} // ✅ Limit bar width to avoid overflow
+                    maxBarSize={45} // Limit bar width to avoid overflow
                 />
               </BarChart>
             </ResponsiveContainer>
