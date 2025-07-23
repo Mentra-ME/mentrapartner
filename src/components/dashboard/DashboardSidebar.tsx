@@ -35,7 +35,7 @@ const navigationItems = [
     {title: 'Crisis Reports', url: '/crisis-reports', icon: AlertTriangle},
     {title: 'Journaling Topics', url: '/journaling-topics', icon: BookOpen},
     {title: 'Engagement Analytics', url: '/engagement', icon: BarChart3},
-    {title: 'School Addins', url: '/school-addins', icon: Settings},
+    {title: 'School Admin', url: '/school-admins', icon: Settings},
     {title: 'AI Sessions', url: '/ai-sessions', icon: Bot},
     {title: 'Notifications', url: '/notifications', icon: Bell},
 ];
