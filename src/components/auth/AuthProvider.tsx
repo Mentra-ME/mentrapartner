@@ -9,6 +9,7 @@ interface User {
     partner_id: number;
     token: string;
     reset_password: boolean;
+    user_type: string;
 }
 
 interface AuthContextType {
@@ -54,7 +55,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({children}
                 company_name: response.data.company_name,
                 partner_id: response.data.partner_id,
                 token: response.data.token,
-                reset_password: response.data.reset_password === 1,
+                reset_password: response.data.reset_password,
+                user_type: response.data.group
             };
 
             setUser(userData);

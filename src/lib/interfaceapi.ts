@@ -11,7 +11,8 @@ export interface LoginResponse {
         company_name: string;
         email: string;
         partner_id: number;
-        reset_password: number;
+        group: string;
+        reset_password: boolean;
     };
 }
 
