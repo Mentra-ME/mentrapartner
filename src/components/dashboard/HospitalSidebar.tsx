@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import {NavLink, useNavigate} from 'react-router-dom';
 import {
     Sidebar,
     SidebarContent,
@@ -39,8 +39,14 @@ const navigationItems = [
 
 export const HospitalSidebar: React.FC = () => {
     const {state} = useSidebar();
+    const navigate = useNavigate();
     const {user, logout} = useAuth();
     const collapsed = state === 'collapsed';
+
+    const handleLogout = () => {
+        logout();
+        navigate('/login', {replace: true});
+    };
 
     return (
         <Sidebar className={collapsed ? 'w-14' : 'w-64'} collapsible="icon">
@@ -126,12 +132,12 @@ export const HospitalSidebar: React.FC = () => {
                         </div>
                     </div>
                     <Button
-                        onClick={logout}
+                        onClick={handleLogout}
                         variant="outline"
                         size="sm"
                         className="w-full border-sidebar-border text-gray-900 hover:bg-gray-100"
                     >
-                        <LogOut className="h-4 w-4 mr-2 text-gray-900" />
+                        <LogOut className="h-4 w-4 mr-2 text-gray-900"/>
                         Logout
                     </Button>
                 </div>

@@ -2,7 +2,7 @@ import {Toaster} from "@/components/ui/toaster";
 import {Toaster as Sonner} from "@/components/ui/sonner";
 import {TooltipProvider} from "@/components/ui/tooltip";
 import {QueryClient, QueryClientProvider} from "@tanstack/react-query";
-import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 import {AuthProvider, useAuth} from "@/components/auth/AuthProvider";
 import {LoginForm} from "@/components/auth/LoginForm";
 import {DashboardLayout} from "@/components/layout/DashboardLayout";
@@ -12,6 +12,7 @@ import {ComingSoon} from "@/pages/ComingSoon";
 import NotFound from "./pages/NotFound";
 import UpdatePassword from "@/pages/UpdatePassword";
 import React from "react";
+import DynamicRedirect from "@/components/auth/DynamicRedirect.tsx";
 
 const queryClient = new QueryClient();
 
@@ -48,10 +49,16 @@ const App = () => (
             <AuthProvider>
                 <BrowserRouter>
                     <Routes>
-                        <Route path="/" element={<Navigate to="/dashboard" replace/>}/>
+                        {/*<Route path="/" element={<Navigate to="/dashboard" replace/>}/>*/}
+                        <Route path="/" element={<DynamicRedirect/>}/>
                         <Route path="/dashboard" element={
                             <ProtectedRoute>
                                 <Dashboard/>
+                            </ProtectedRoute>
+                        }/>
+                        <Route path="/dashboard-hospital" element={
+                            <ProtectedRoute>
+                                <HospitalDashboard/>
                             </ProtectedRoute>
                         }/>
                         <Route path="/student-logs" element={
@@ -94,11 +101,6 @@ const App = () => (
                                 <ComingSoon title="EOS" description="End of session analytics and reporting tools."/>
                             </ProtectedRoute>
                         }/>
-                        <Route path="/dashboard-hospital" element={
-                            <ProtectedRoute>
-                                <HospitalDashboard/>
-                            </ProtectedRoute>
-                        }/>
                         <Route path="/patient-referrals" element={
                             <ProtectedRoute>
                                 <ComingSoon title="Patient Referrals" description="Manage patient referrals and track their status."/>
@@ -129,6 +131,7 @@ const App = () => (
                                 <UpdatePassword/>
                             </ProtectedRoute>
                         }/>
+                        <Route path="/login" element={<LoginForm/>}/>
                         <Route path="*" element={<NotFound/>}/>
                     </Routes>
                 </BrowserRouter>

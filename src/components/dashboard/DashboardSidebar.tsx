@@ -1,5 +1,5 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
+import {NavLink, useNavigate} from 'react-router-dom';
 import {
     Sidebar,
     SidebarContent,
@@ -46,8 +46,14 @@ const sessionItems = [
 
 export const DashboardSidebar: React.FC = () => {
     const {state} = useSidebar();
+    const navigate = useNavigate();
     const {user, logout} = useAuth();
     const collapsed = state === 'collapsed';
+
+    const handleLogout = () => {
+        logout();
+        navigate('/login', { replace: true });
+    };
 
     return (
         <Sidebar className={collapsed ? 'w-14' : 'w-64'} collapsible="icon">
@@ -164,7 +170,7 @@ export const DashboardSidebar: React.FC = () => {
                         </div>
                     </div>
                     <Button
-                        onClick={logout}
+                        onClick={handleLogout}
                         variant="outline"
                         size="sm"
                         className="w-full border-sidebar-border text-black "

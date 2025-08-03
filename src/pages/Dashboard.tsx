@@ -4,7 +4,7 @@ import { CrisisChart } from '@/components/dashboard/CrisisChart';
 import { EngagementChart } from '@/components/dashboard/EngagementChart';
 import { StudentActivityChart } from '@/components/dashboard/StudentActivityChart';
 import { SessionsTable } from '@/components/dashboard/SessionsTable';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Users, Clock, BookOpen, Activity } from 'lucide-react';
 import { useDashboard } from '@/hooks/useDashboard';
 import { useAuth } from '@/components/auth/AuthProvider';
