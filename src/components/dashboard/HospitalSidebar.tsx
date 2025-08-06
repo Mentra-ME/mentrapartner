@@ -1,5 +1,7 @@
 import React from 'react';
 import {NavLink, useNavigate} from 'react-router-dom';
+import { DirhamIcon } from '@/components/icons/DirhamIcon';
+
 import {
     Sidebar,
     SidebarContent,
@@ -32,7 +34,7 @@ const navigationItems = [
     {title: 'Patient Referrals', url: '/patient-referrals', icon: Users},
     {title: 'Invoices', url: '/invoices', icon: FileText},
     {title: 'Claims', url: '/claims', icon: ClipboardList},
-    {title: 'Pricing', url: '/pricing', icon: DollarSign},
+    {title: 'Pricing', url: '/pricing', icon: DirhamIcon},
     {title: 'Purchases', url: '/purchases', icon: ShoppingCart},
     {title: 'Notification', url: '/notifications', icon: Bell},
 ];

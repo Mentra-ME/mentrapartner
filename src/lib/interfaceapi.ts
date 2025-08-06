@@ -66,3 +66,33 @@ export interface DashboardResponse {
     };
 }
 
+
+export interface PricingItem {
+    id: number;
+    name: string;
+    description: string;
+    default_price: string;
+    custom_price: string | null;
+    currency: string;
+}
+
+export interface PricingResponse {
+    trace_id: string;
+    success: boolean;
+    message: string;
+    data: PricingItem[];
+}
+
+export interface UpdatePricingRequest {
+    features: Array<{
+        paywall_feature_id: number;
+        custom_price: number;
+    }>;
+}
+
+export interface UpdatePricingResponse {
+    trace_id: string;
+    success: boolean;
+    message: string;
+    data: null;
+}

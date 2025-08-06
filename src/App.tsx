@@ -10,6 +10,7 @@ import {Dashboard} from "@/pages/Dashboard";
 import {HospitalDashboard} from "@/pages/HospitalDashboard";
 import {ComingSoon} from "@/pages/ComingSoon";
 import NotFound from "./pages/NotFound";
+import { Pricing } from "@/pages/Pricing";
 import UpdatePassword from "@/pages/UpdatePassword";
 import React from "react";
 import DynamicRedirect from "@/components/auth/DynamicRedirect.tsx";
@@ -118,7 +119,8 @@ const App = () => (
                         }/>
                         <Route path="/pricing" element={
                             <ProtectedRoute>
-                                <ComingSoon title="Pricing" description="Configure pricing models for hospital services."/>
+                                <Pricing />
+                                {/*<ComingSoon title="Pricing" description="Configure pricing models for hospital services."/>*/}
                             </ProtectedRoute>
                         }/>
                         <Route path="/purchases" element={
