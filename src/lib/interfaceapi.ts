@@ -96,3 +96,19 @@ export interface UpdatePricingResponse {
     message: string;
     data: null;
 }
+
+
+export interface InvoiceItem {
+    paywall_feature_id: number;
+    feature_name: string;
+    quantity: number;
+    total_amount_paid_by_users: string;
+    mentra_payout: string;
+}
+
+export interface InvoiceResponse {
+    trace_id: string;
+    success: boolean;
+    message: string;
+    data: InvoiceItem[];
+}

@@ -1,4 +1,14 @@
-import {DashboardResponse, LoginRequest, LoginResponse, PricingResponse, UpdatePasswordRequest, UpdatePasswordResponse, UpdatePricingRequest, UpdatePricingResponse} from "@/lib/interfaceapi.ts";
+import {
+    DashboardResponse,
+    InvoiceResponse,
+    LoginRequest,
+    LoginResponse,
+    PricingResponse,
+    UpdatePasswordRequest,
+    UpdatePasswordResponse,
+    UpdatePricingRequest,
+    UpdatePricingResponse
+} from "@/lib/interfaceapi.ts";
 
 
 const API_BASE_URL = 'https://staging.app.yourmentra.com/';
@@ -120,6 +130,18 @@ export const pricingApi = {
 
     getPaywallFeatures: async (token: string): Promise<PricingResponse> => {
         return await apiRequest('api/v1/partner/features', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            },
+        });
+    },
+};
+
+
+export const invoiceApi = {
+    getInvoices: async (token: string, month: number, year: number): Promise<InvoiceResponse> => {
+        return await apiRequest(`api/v1/partner/invoice?month=${month}&year=${year}`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`,

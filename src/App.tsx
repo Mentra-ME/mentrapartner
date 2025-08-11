@@ -10,7 +10,8 @@ import {Dashboard} from "@/pages/Dashboard";
 import {HospitalDashboard} from "@/pages/HospitalDashboard";
 import {ComingSoon} from "@/pages/ComingSoon";
 import NotFound from "./pages/NotFound";
-import { Pricing } from "@/pages/Pricing";
+import {Pricing} from "@/pages/Pricing";
+import {Invoices} from "@/pages/Invoices";
 import UpdatePassword from "@/pages/UpdatePassword";
 import React from "react";
 import DynamicRedirect from "@/components/auth/DynamicRedirect.tsx";
@@ -109,7 +110,7 @@ const App = () => (
                         }/>
                         <Route path="/invoices" element={
                             <ProtectedRoute>
-                                <ComingSoon title="Invoices" description="View and manage invoices for hospital services."/>
+                                <Invoices/>
                             </ProtectedRoute>
                         }/>
                         <Route path="/claims" element={
@@ -119,8 +120,7 @@ const App = () => (
                         }/>
                         <Route path="/pricing" element={
                             <ProtectedRoute>
-                                <Pricing />
-                                {/*<ComingSoon title="Pricing" description="Configure pricing models for hospital services."/>*/}
+                                <Pricing/>
                             </ProtectedRoute>
                         }/>
                         <Route path="/purchases" element={
