@@ -19,7 +19,7 @@ export const HospitalMetricCard: React.FC<HospitalMetricCardProps> = ({title, va
                     </div>
                     <div className="flex-1">
                         <p className="text-sm font-medium text-muted-foreground mb-1">{title}</p>
-                        <p className="text-base sm:text-xl md:text-xl lg:text-2xl xl:text-3xl font-bold text-foreground">{value}</p>
+                        <p className="text-base sm:text-xl md:text-xl lg:text-xl font-bold text-foreground">{value}</p>
 
                     </div>
                 </div>
