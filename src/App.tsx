@@ -13,6 +13,8 @@ import NotFound from "./pages/NotFound";
 import {Pricing} from "@/pages/Pricing";
 import {Invoices} from "@/pages/Invoices";
 import UpdatePassword from "@/pages/UpdatePassword";
+import {PatientReferrals} from "@/pages/PatientReferrals";
+import {StudentLogs} from "@/pages/StudentLogs";
 import React from "react";
 import DynamicRedirect from "@/components/auth/DynamicRedirect.tsx";
 
@@ -65,7 +67,7 @@ const App = () => (
                         }/>
                         <Route path="/student-logs" element={
                             <ProtectedRoute>
-                                <ComingSoon title="Student Logs" description="View and manage student activity logs and session history."/>
+                                <StudentLogs/>
                             </ProtectedRoute>
                         }/>
                         <Route path="/crisis-reports" element={
@@ -105,7 +107,7 @@ const App = () => (
                         }/>
                         <Route path="/patient-referrals" element={
                             <ProtectedRoute>
-                                <ComingSoon title="Patient Referrals" description="Manage patient referrals and track their status."/>
+                                <PatientReferrals/>
                             </ProtectedRoute>
                         }/>
                         <Route path="/invoices" element={

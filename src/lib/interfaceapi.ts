@@ -112,3 +112,39 @@ export interface InvoiceResponse {
     message: string;
     data: InvoiceItem[];
 }
+
+
+export interface Customer {
+    id: number;
+    uid: string;
+    name: string;
+    username: string;
+    email: string;
+    partner_id: number;
+    created_at: string;
+}
+
+export interface CustomersResponse {
+    trace_id: string;
+    success: boolean;
+    message: string;
+    data: {
+        current_page: number;
+        data: Customer[];
+        first_page_url: string;
+        from: number;
+        last_page: number;
+        last_page_url: string;
+        links: Array<{
+            url: string | null;
+            label: string;
+            active: boolean;
+        }>;
+        next_page_url: string | null;
+        path: string;
+        per_page: number;
+        prev_page_url: string | null;
+        to: number;
+        total: number;
+    };
+}

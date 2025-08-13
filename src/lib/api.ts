@@ -1,4 +1,5 @@
 import {
+    CustomersResponse,
     DashboardResponse,
     InvoiceResponse,
     LoginRequest,
@@ -142,6 +143,17 @@ export const pricingApi = {
 export const invoiceApi = {
     getInvoices: async (token: string, month: number, year: number): Promise<InvoiceResponse> => {
         return await apiRequest(`api/v1/partner/invoice?month=${month}&year=${year}`, {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            },
+        });
+    },
+};
+
+export const customerApi = {
+    getCustomers: async (token: string, page: number = 1): Promise<CustomersResponse> => {
+        return await apiRequest(`api/v1/partner/customers?page=${page}`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`,
