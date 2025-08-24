@@ -57,8 +57,8 @@ export const InvoicesTable: React.FC<InvoicesTableProps> = ({invoices, month, ye
                 <Table>
                     <TableHeader>
                         <TableRow>
-                            <TableHead>Feature ID</TableHead>
-                            <TableHead>Feature Name</TableHead>
+                            <TableHead>Subscription ID</TableHead>
+                            <TableHead>Subscription Plan</TableHead>
                             <TableHead className="text-center">Quantity</TableHead>
                             <TableHead className="text-right">Total Paid by Users</TableHead>
                             <TableHead className="text-right">Mentra Payout</TableHead>
